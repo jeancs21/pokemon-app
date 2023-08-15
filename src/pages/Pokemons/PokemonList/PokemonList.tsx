@@ -1,6 +1,8 @@
+import PokemonFetcher from "./components/PokemonFetcher"
+
 const PokemonList = () => {
   return (
-    <div>PokemonList</div>
+    <PokemonFetcher />
   )
 }
 
