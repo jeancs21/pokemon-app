@@ -4,6 +4,7 @@ import NotFound from "../pages/NotFound/NotFound"
 import { PrivateRoutes, PublicRoutes } from "../models/routes/routes"
 import PokemonList from "../pages/Pokemons/PokemonList/PokemonList"
 import FavoritePokemonsList from "../pages/Pokemons/FavoritePokemons/FavoritePokemonsList"
+import AuthGuard from "../guards/auth.guard"
 
 const RouterApp = () => {
   return (
@@ -12,8 +13,10 @@ const RouterApp = () => {
             <Route path="/" element={<Login />} />
             <Route path="*" element={<NotFound />} />
             <Route path={PublicRoutes.LOGIN} element={<Login />} />
-            <Route path={PrivateRoutes.POKEMON_LIST} element={<PokemonList />} />
-            <Route path={PrivateRoutes.FAVORITE_POKEMONS} element={<FavoritePokemonsList />} />
+            <Route element={<AuthGuard />}>
+                <Route path={PrivateRoutes.POKEMON_LIST} element={<PokemonList />} />
+                <Route path={PrivateRoutes.FAVORITE_POKEMONS} element={<FavoritePokemonsList />} />
+            </Route>
         </Routes>
     </>
   )
