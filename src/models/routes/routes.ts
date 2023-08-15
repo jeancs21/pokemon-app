@@ -3,6 +3,6 @@ export const PublicRoutes = {
 }
 
 export const PrivateRoutes = {
-    POKEMON_LIST: 'pokemon-list',
-    FAVORITE_POKEMONS: 'favorite-pokemons'
+    POKEMON_LIST: '/pokemon-list',
+    FAVORITE_POKEMONS: '/favorite-pokemons'
 }
