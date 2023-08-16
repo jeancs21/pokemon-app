@@ -6,6 +6,7 @@ import { httpClient } from "../api/httpClient"
 const usePokemon = () => {
     const [pokemons, setPokemons] = useState<ListPokemon[]>([])
     const [nextUrl, setNextUrl] = useState<string | null>(POKEMON_API_POKEMON_URL)
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         fetchPokemon()
@@ -24,28 +25,32 @@ const usePokemon = () => {
             pokedexNumber,
             types
         }
+        //console.log("pokemones", listPokemon)
         return listPokemon
     }
 
     const fetchPokemon = async () => {
-        if (nextUrl) {
+        if (nextUrl && !loading) {
+            setLoading(true)
             const result = await httpClient.get<PokemonListResponse>(nextUrl);
             if (result?.data?.results) {
                 const newListPokemons = await Promise.all(result.data.results.map(async pokemon => {
                     return await indexedPokemonToListPokemon(pokemon);
                 }));
                 setPokemons(prevPokemons => [
-                    ...prevPokemons,
+                    //...prevPokemons,
                     ...newListPokemons
                 ]);
                 setNextUrl(result.data.next);
             }
+            setLoading(false)
         }
     }
   return {
     pokemons,
     fetchNextPage: fetchPokemon,
-    hasMorePokemon: !!nextUrl
+    hasMorePokemon: !!nextUrl,
+    loading
   }
 }
 
