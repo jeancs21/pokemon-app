@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { pokemonList } from "../../mocks/pokemons";
-import { Pokemon } from "../../models/pokemon/pokemon";
+import { Pokemon } from "../../models/pokemon/pokemon.model";
 
 export const PokemonEmptyState: Pokemon[] = []
 
