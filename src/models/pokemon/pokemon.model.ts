@@ -25,6 +25,7 @@ export interface IndexedPokemon {
     url: string;
     image: string;
     pokedexNumber: number;
+    types: string[]
   }
   
   export interface PokemonAbility {

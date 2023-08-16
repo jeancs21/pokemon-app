@@ -18,7 +18,14 @@ const Card: FunctionComponent<Props> = (props) => {
         <div className='flex justify-between'>
           <div className='flex flex-col gap-4'>
             <p className='font-medium text-lg'>{props.pokemon.name}</p>
-            <p className='p-1 bg-slate-300 rounded-full w-32 text-center'>{""}</p>
+            {props.pokemon.types.map((type, index) => (
+                <p
+                    key={index}
+                    className={`p-1 rounded-full w-32 text-center`}
+                >
+                    {type}
+                </p>
+            ))}
           </div>
           {/*
 
