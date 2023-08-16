@@ -1,6 +1,6 @@
 import {FunctionComponent} from 'react';
 import Card from './Card';
-import { Pokemon } from '../../models/pokemon/pokemon';
+import { ListPokemon } from '../../models/pokemon/pokemon.model';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavoritePokemon, removeFavoritePokemon } from '../../redux/states/pokemon.state';
 import EmptyFavoritePokemonList from '../../pages/Pokemons/FavoritePokemons/components/EmptyFavoritePokemonList';
@@ -8,12 +8,12 @@ import { AppStore } from '../../redux/store';
 
 
 type Props = {
-    pokemons:  Pokemon[];
+    pokemons:  ListPokemon[];
 }
 
 const CardList:FunctionComponent<Props> = (props) => {
 
-const dispatch = useDispatch()
+/*const dispatch = useDispatch()
 
 const favorites = useSelector((store: AppStore) => store.pokemon)
 
@@ -27,7 +27,7 @@ const handleFavorite = (pokemon: Pokemon) => {
     } else {
         dispatch(addFavoritePokemon(pokemon));
     }
-}
+}*/
 
   return (
     <div className='flex flex-wrap justify-center'>
@@ -35,11 +35,11 @@ const handleFavorite = (pokemon: Pokemon) => {
             return (
                 <Card
                     key={i}
-                    name={pokemon.name}
-                    type={pokemon.type}
-                    image={pokemon.image}
-                    isFavorite={isPokemonInFavorites(pokemon)}
-                    onFavorite={() => handleFavorite(pokemon)}
+                    pokemon={pokemon}
+                    //type={pokemon.type}
+                    //image={pokemon.image}
+                    //isFavorite={isPokemonInFavorites(pokemon)}
+                    //onFavorite={() => handleFavorite(pokemon)}
                 />
             )
         })
