@@ -2,7 +2,6 @@ import CardList from "../../../../containers/Cards/CardList"
 import { Pokemon } from "../../../../models/pokemon/pokemon"
 import { pokemonList } from "../../../../mocks/pokemons"
 
-//const pokemonList = useSelector((store: AppStore) => store.pokemon)
 
 const PokemonState: Pokemon[] = pokemonList
 

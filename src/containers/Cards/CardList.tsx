@@ -4,8 +4,7 @@ import { Pokemon } from '../../models/pokemon/pokemon';
 import { useDispatch } from 'react-redux';
 import { addFavoritePokemon } from '../../redux/states/pokemon.state';
 import EmptyFavoritePokemonList from '../../pages/Pokemons/FavoritePokemons/components/EmptyFavoritePokemonList';
-import { useNavigate } from 'react-router-dom';
-import { PrivateRoutes } from '../../models/routes/routes';
+
 
 type Props = {
     pokemons:  Pokemon[];
@@ -14,13 +13,14 @@ type Props = {
 const CardList:FunctionComponent<Props> = (props) => {
 
 const dispatch = useDispatch()
-const navigate = useNavigate()
 
 const handleFavorite = (pokemon: Pokemon) => {
     console.log("Pokemon", pokemon)
     try {
         dispatch(addFavoritePokemon(pokemon))
-        navigate(PrivateRoutes.FAVORITE_POKEMONS)
+        setTimeout(() => {
+            alert("Pokemon añadido a favoritos!")
+        }, 500)
     }
     catch (error) {
         console.log(error)
