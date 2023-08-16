@@ -1,11 +1,11 @@
 import {FunctionComponent} from 'react';
 import Card from './Card';
 import { Pokemon } from '../../models/pokemon/pokemon';
-import { useDispatch } from 'react-redux';
-import { addFavoritePokemon } from '../../redux/states/pokemon.state';
+import { useDispatch, useSelector } from 'react-redux';
+import { addFavoritePokemon, removeFavoritePokemon } from '../../redux/states/pokemon.state';
 import EmptyFavoritePokemonList from '../../pages/Pokemons/FavoritePokemons/components/EmptyFavoritePokemonList';
-import { useNavigate } from 'react-router-dom';
-import { PrivateRoutes } from '../../models/routes/routes';
+import { AppStore } from '../../redux/store';
+
 
 type Props = {
     pokemons:  Pokemon[];
@@ -14,16 +14,18 @@ type Props = {
 const CardList:FunctionComponent<Props> = (props) => {
 
 const dispatch = useDispatch()
-const navigate = useNavigate()
+
+const favorites = useSelector((store: AppStore) => store.pokemon)
+
+const isPokemonInFavorites = (pokemon: Pokemon): boolean => {
+    return favorites.some((favoritePokemon) => favoritePokemon.name === pokemon.name)
+};
 
 const handleFavorite = (pokemon: Pokemon) => {
-    console.log("Pokemon", pokemon)
-    try {
-        dispatch(addFavoritePokemon(pokemon))
-        navigate(PrivateRoutes.FAVORITE_POKEMONS)
-    }
-    catch (error) {
-        console.log(error)
+    if (isPokemonInFavorites(pokemon)) {
+        dispatch(removeFavoritePokemon(pokemon.name));
+    } else {
+        dispatch(addFavoritePokemon(pokemon));
     }
 }
 
@@ -36,6 +38,7 @@ const handleFavorite = (pokemon: Pokemon) => {
                     name={pokemon.name}
                     type={pokemon.type}
                     image={pokemon.image}
+                    isFavorite={isPokemonInFavorites(pokemon)}
                     onFavorite={() => handleFavorite(pokemon)}
                 />
             )

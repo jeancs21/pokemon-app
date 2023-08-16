@@ -6,6 +6,7 @@ type Props = {
     name: string,
     type: string,
     image: string,
+    isFavorite: boolean,
     onFavorite: () => void
 }
 
@@ -24,7 +25,15 @@ const Card: FunctionComponent<Props> = (props) => {
             <p className='p-1 bg-slate-300 rounded-full w-32 text-center'>{props.type}</p>
           </div>
           <div className='cursor-pointer'>
-            <HeartIcon className='w-8 h-8 fill-transparent' onClick={props.onFavorite} />
+            {props.isFavorite ?
+            (
+              <HeartIcon className='w-8 h-8 fill-red-500' onClick={props.onFavorite} />
+            )
+            :
+            (
+              <HeartIcon className='w-8 h-8 fill-transparent' onClick={props.onFavorite} />
+            )
+            }
           </div>
         </div>
         <img className='' src={props.image} alt='pokemon-image' />
