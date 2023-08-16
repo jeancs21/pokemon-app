@@ -1,6 +1,8 @@
+import FavoritePokemonFetcher from "./components/FavoritePokemonFetcher"
+
 const FavoritePokemonsList = () => {
   return (
-    <div>FavoritePokemonsList</div>
+    <FavoritePokemonFetcher />
   )
 }
 

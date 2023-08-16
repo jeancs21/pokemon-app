@@ -5,10 +5,17 @@ import { PrivateRoutes, PublicRoutes } from "../models/routes/routes"
 import PokemonList from "../pages/Pokemons/PokemonList/PokemonList"
 import FavoritePokemonsList from "../pages/Pokemons/FavoritePokemons/FavoritePokemonsList"
 import AuthGuard from "../guards/auth.guard"
+import Menu from "../containers/Menu/Menu"
 
 const RouterApp = () => {
+
+    const menuItems = [
+        { title: 'Lista de favoritos', url: PrivateRoutes.FAVORITE_POKEMONS },
+    ];
+
   return (
     <>
+        <Menu items={menuItems} />
         <Routes>
             <Route path="/" element={<Login />} />
             <Route path="*" element={<NotFound />} />
