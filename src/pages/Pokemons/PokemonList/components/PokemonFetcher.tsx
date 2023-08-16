@@ -1,3 +1,4 @@
+import PaginateButton from "../../../../containers/Buttons/PaginateButton"
 import CardList from "../../../../containers/Cards/CardList"
 import usePokemon from "../../../../hooks/usePokemon"
 
@@ -6,7 +7,7 @@ import usePokemon from "../../../../hooks/usePokemon"
 
 const PokemonFetcher = () => {
 
-  const { pokemons } = usePokemon()
+  const { pokemons, hasMorePokemon, fetchNextPage } = usePokemon()
 
   return (
     <>
@@ -15,6 +16,11 @@ const PokemonFetcher = () => {
         </div>
         <div className="self-center container p-8 rounded-md">
             <CardList pokemons={pokemons} />
+            {
+              hasMorePokemon && (
+                <PaginateButton buttonText="Cargar más pokemones" paginateTo={fetchNextPage} />
+              )
+            }
         </div>
     </>
   )

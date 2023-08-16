@@ -29,11 +29,14 @@ const usePokemon = () => {
             if (result?.data?.results) {
                 const listPokemons = result.data.results.map(pokemon => indexedPokemonToListPokemon(pokemon))
                 setPokemons(listPokemons)
+                setNextUrl(result.data.next)
             }
         }
     }
   return {
-    pokemons
+    pokemons,
+    fetchNextPage: fetchPokemon,
+    hasMorePokemon: !!nextUrl
   }
 }
 
