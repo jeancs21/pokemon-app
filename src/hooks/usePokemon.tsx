@@ -25,7 +25,6 @@ const usePokemon = () => {
             pokedexNumber,
             types
         }
-        //console.log("pokemones", listPokemon)
         return listPokemon
     }
 
@@ -37,7 +36,7 @@ const usePokemon = () => {
                 const newListPokemons = await Promise.all(result.data.results.map(async pokemon => {
                     return await indexedPokemonToListPokemon(pokemon);
                 }));
-                setPokemons(prevPokemons => [
+                setPokemons( () => [
                     //...prevPokemons,
                     ...newListPokemons
                 ]);

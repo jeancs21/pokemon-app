@@ -8,7 +8,6 @@ import usePokemon from "../../../../hooks/usePokemon"
 const PokemonFetcher = () => {
 
   const { pokemons, hasMorePokemon, fetchNextPage } = usePokemon()
-  console.log(pokemons)
 
   return (
     <>
