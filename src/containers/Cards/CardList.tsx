@@ -1,4 +1,4 @@
-import {FunctionComponent, useState} from 'react';
+import {FunctionComponent} from 'react';
 import Card from './Card';
 import { Pokemon } from '../../models/pokemon/pokemon';
 import { useDispatch, useSelector } from 'react-redux';
