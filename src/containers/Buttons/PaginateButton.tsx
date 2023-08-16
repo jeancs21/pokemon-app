@@ -8,7 +8,7 @@ type Props = {
 const PaginateButton:FunctionComponent<Props> = (props) => {
   return (
     <button
-        className={`bg-slate-300 text-black w-44 border-1 border-black cursor-pointer p-2 self-center rounded-full hover:bg-slate-400 duration-300`}
+        className={`bg-slate-300 text-black w-44 border-2 border-slate-400 cursor-pointer p-2 self-center rounded-full hover:bg-slate-200 duration-300`}
         onClick={props.paginateTo}
     >
         {props.buttonText}

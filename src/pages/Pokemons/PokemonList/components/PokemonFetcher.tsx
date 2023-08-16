@@ -18,7 +18,7 @@ const PokemonFetcher = () => {
             <CardList pokemons={pokemons} />
             {
               hasMorePokemon && (
-                <PaginateButton buttonText="Cargar más pokemones" paginateTo={fetchNextPage} />
+                <PaginateButton buttonText="Más pokemones" paginateTo={fetchNextPage} />
               )
             }
         </div>

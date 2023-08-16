@@ -28,7 +28,7 @@ const usePokemon = () => {
             const result = await httpClient.get<PokemonListResponse>(nextUrl)
             if (result?.data?.results) {
                 const listPokemons = result.data.results.map(pokemon => indexedPokemonToListPokemon(pokemon))
-                setPokemons(listPokemons)
+                setPokemons([ ...pokemons, ...listPokemons])
                 setNextUrl(result.data.next)
             }
         }
