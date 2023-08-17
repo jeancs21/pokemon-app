@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Bars3Icon } from '@heroicons/react/20/solid';
+import { Bars3Icon, UserIcon } from '@heroicons/react/20/solid';
+import { useSelector } from 'react-redux';
+import { AppStore } from '../../redux/store';
 
 interface MenuItem {
   title: string;
@@ -12,6 +14,8 @@ interface MenuProps {
 
 const Menu: React.FC<MenuProps> = ({ items }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const userLogged = useSelector((store: AppStore) => store.user)
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -27,6 +31,14 @@ const Menu: React.FC<MenuProps> = ({ items }) => {
           </li>
         ))}
       </ul>
+      {
+        userLogged && (
+        <div className="flex gap-4">
+          <UserIcon className="w-6 h-6" />
+          <p className="font-medium">{userLogged.username}</p>
+        </div>
+        )
+      }
     </div>
   );
 };

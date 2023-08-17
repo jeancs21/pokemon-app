@@ -21,9 +21,9 @@ const RouterApp = () => {
             <Route path="*" element={<NotFound />} />
             <Route path={PublicRoutes.LOGIN} element={<Login />} />
             <Route element={<AuthGuard />}>
-            </Route>
                 <Route path={PrivateRoutes.POKEMON_LIST} element={<PokemonList />} />
                 <Route path={PrivateRoutes.FAVORITE_POKEMONS} element={<FavoritePokemonsList />} />
+            </Route>
         </Routes>
     </>
   )
