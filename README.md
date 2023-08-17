@@ -41,7 +41,10 @@ This will start the development server. Open your browser and navigate to `http:
 
 ## Screenshots
 
-Screenshots of the application can be found [here](link-to-your-screenshots).
+![pokemon-list](https://github.com/jeancs21/pokemon-app/assets/40588173/907a293c-ab6a-4b89-8ee3-9c0ddb6dc948)
+
+![list-2](https://github.com/jeancs21/pokemon-app/assets/40588173/d286c516-4897-4b56-9825-41135d7fe776)
+
 
 ## Features
 
