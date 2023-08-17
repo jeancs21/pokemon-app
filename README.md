@@ -66,6 +66,7 @@ This will start the development server. Open your browser and navigate to `http:
 ### Missing Features
 
 - Add pokemos to favorite list (bugged).
+- Search for a individual pokemon from searchbar.
 - Show menu and login data only inside the app.
 - Navigate to previues pokemon list.
 
