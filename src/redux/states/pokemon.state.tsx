@@ -1,17 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { pokemonList } from "../../mocks/pokemons";
-import { Pokemon } from "../../models/pokemon/pokemon.model";
+import { ListPokemon } from "../../models/pokemon/pokemon.model";
 
-export const PokemonEmptyState: Pokemon[] = []
-
-export const PokemonState: Pokemon[] = pokemonList
+export const PokemonEmptyState: ListPokemon[] = []
 
 export const pokemonSlice = createSlice({
     name: 'favorite-pokemon',
     initialState: PokemonEmptyState,
     reducers: {
         addFavoritePokemon: (state, action) => {
-            const newFavoritePokemon: Pokemon = {
+            const newFavoritePokemon: ListPokemon = {
                 ...action.payload,
                 isFavorite: true
             };
